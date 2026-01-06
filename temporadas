@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Temporada I — Fragmentos</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Crimson+Text&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background: #0f1115;
+      color: #e6e1d8;
+      font-family: "Crimson Text", serif;
+      margin: 0;
+    }
+
+    main {
+      max-width: 700px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .poema {
+      margin-bottom: 40px;
+      border-bottom: 1px solid #2a2d34;
+      padding-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<main>
+  <h1>Temporada I — Fragmentos</h1>
+
+  <div class="poema"><p>Poema 1.</p></div>
+  <div class="poema"><p>Poema 2.</p></div>
+  <div class="poema"><p>Poema 3.</p></div>
+  <div class="poema"><p>Poema 4.</p></div>
+  <div class="poema"><p>Poema 5.</p></div>
+  <div class="poema"><p>Poema 6.</p></div>
+  <div class="poema"><p>Poema 7.</p></div>
+  <div class="poema"><p>Poema 8.</p></div>
+  <div class="poema"><p>Poema 9.</p></div>
+  <div class="poema"><p>Poema 10.</p></div>
+</main>
+
+</body>
+</html>
