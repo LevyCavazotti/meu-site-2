@@ -3,38 +3,136 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sua Dose Diária de Poesia</title>
-  <h3>Por Levy Cavazotti</h3>
+  <title>Projeto Literário</title>
 
-  <!-- Fonte literária -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Crimson+Text&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Crimson+Text&display=swap" rel="stylesheet">
 
   <style>
     body {
-      margin: 0;
-      padding: 0;
       background: #0f1115;
       color: #e6e1d8;
       font-family: "Crimson Text", serif;
-      line-height: 1.7;
+      margin: 0;
     }
 
-    header {
-      padding: 40px 20px;
+    header, footer {
       text-align: center;
+      padding: 30px 20px;
       border-bottom: 1px solid #2a2d34;
     }
 
-    header h1 {
-      font-family: "Playfair Display", serif;
-      font-weight: 600;
-      letter-spacing: 1px;
-      margin: 0;
-      color: #f2ede4;
+    nav a {
+      color: #c8b79a;
+      margin: 0 10px;
+      text-decoration: none;
+      font-style: italic;
     }
 
     main {
-      max-width: 720px;
+      max-width: 700px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .box {
+      background: #161922;
+      padding: 40px;
+      border-left: 4px solid #8b6f47;
+    }
+
+    .data {
+      font-style: italic;
+      color: #9c9487;
+      margin-bottom: 20px;
+    }
+
+    a {
+      color: #c8b79a;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Projeto Literário</h1>
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="registro.html">Registro de Temporadas</a>
+  </nav>
+</header>
+
+<main id="conteudo"></main>
+
+<footer>
+  © 2026
+</footer>
+
+<script>
+  const temporada = {
+    nome: "Temporada I — Fragmentos",
+    inicio: "2026-03-01",
+    duracao: 10,
+    textos: [
+      "Poema 1.",
+      "Poema 2.",
+      "Poema 3.",
+      "Poema 4.",
+      "Poema 5.",
+      "Poema 6.",
+      "Poema 7.",
+      "Poema 8.",
+      "Poema 9.",
+      "Poema 10."
+    ]
+  };
+
+  const inicio = new Date(temporada.inicio);
+  const hoje = new Date();
+  const diffDias = Math.floor((hoje - inicio) / 86400000);
+
+  const container = document.getElementById("conteudo");
+
+  if (diffDias >= 0 && diffDias < temporada.duracao) {
+    const seed = 12345;
+    function shuffle(arr) {
+      let s = seed;
+      function rand() {
+        s = (s * 16807) % 2147483647;
+        return (s - 1) / 2147483646;
+      }
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(rand() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+
+    const ordem = shuffle([...Array(temporada.textos.length).keys()]);
+    const textoHoje = temporada.textos[ordem[diffDias]];
+
+    container.innerHTML = `
+      <div class="box">
+        <h2>${temporada.nome}</h2>
+        <div class="data">${hoje.toLocaleDateString("pt-BR")}</div>
+        <p>${textoHoje}</p>
+      </div>
+    `;
+  } else if (diffDias >= temporada.duracao) {
+    container.innerHTML = `
+      <div class="box">
+        <h2>${temporada.nome} encerrada</h2>
+        <p>
+          <a href="temporadas/temporada-1.html">
+            Ler todos os poemas da temporada
+          </a>
+        </p>
+      </div>
+    `;
+  }
+</script>
+
+</body>
+</html>      max-width: 720px;
       margin: 60px auto;
       padding: 0 20px;
     }
